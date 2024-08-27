@@ -1,4 +1,4 @@
-# .enc References
+# .env file References
 ```
 SECRET_KEY=SOME_SECRET_KEY
 
