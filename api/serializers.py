@@ -1,9 +1,12 @@
 from rest_framework import serializers
 
-from api.models import Product, Category, Subcategory, Order
+from api.models import Product, Category, Subcategory
 
 
 class ProductSerializer(serializers.ModelSerializer):
+    category = serializers.PrimaryKeyRelatedField(queryset=Category.objects.all())
+    subcategory = serializers.PrimaryKeyRelatedField(queryset=Subcategory.objects.all())
+
     class Meta:
         model = Product
         fields = '__all__'
@@ -12,16 +15,12 @@ class ProductSerializer(serializers.ModelSerializer):
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
-        fields = '__all__'
+        fields = ['id', 'name']
 
 
 class SubcategorySerializer(serializers.ModelSerializer):
+    category = serializers.PrimaryKeyRelatedField(queryset=Category.objects.all())
+
     class Meta:
         model = Subcategory
-        fields = '__all__'
-
-
-class OrderSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Order
-        fields = '__all__'
+        fields = ['id', 'name', 'category']
