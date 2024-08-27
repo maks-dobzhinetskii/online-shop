@@ -1,3 +1,15 @@
+# .enc References
+```
+SECRET_KEY=SOME_SECRET_KEY
+
+DB_NAME=online_shop
+DB_USERNAME=postgres
+DB_PASSWORD=postgres
+DB_HOST=db
+DB_PORT=5432
+DB_ENGINE=django.db.backends.postgresql
+```
+
 API Endpoints
 
 # Authentication
